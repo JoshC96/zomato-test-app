@@ -13,3 +13,7 @@ Using Node/Express + React the application shows restaurants using filters and t
  Using Express routes and the directory structure the app can ping /api/cuisines to get data - the /api/cuisines file will use the controllers/zomatoController to make requests to the API
 
 axiosInstance will create an object of axios for easy authorization of the API. Create the instance once and reuse for all future requests.
+
+## React App
+
+Used ``` npx create-react-app ./ ``` inside /public directory to initialize React application

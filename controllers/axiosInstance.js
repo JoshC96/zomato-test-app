@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+console.log(process.env.ZOMATO_API_KEY)
+
 const axiosInstance = axios.create({
     baseURL: "https://developers.zomato.com/api/v2.1",
     timeout: 3000,

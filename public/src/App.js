@@ -1,8 +1,34 @@
 import React from 'react';
+import axios from "axios";
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const getPlaceItems = async () => {
+    console.log("awaiting")
+    await axios.get("/api/restaurants")
+      .then(function(response){
+        console.log(response)
+        return response;
+      }).catch(function(err){
+        console.log(err)
+      })
+  }
+  getPlaceItems();
+
+  const getCuisines = async () => {
+    console.log("awaiting")
+    await axios.get("/api/cuisines")
+      .then(function(response){
+        console.log(response)
+        return response;
+      }).catch(function(err){
+        console.log(err)
+      })
+  }
+  getCuisines();
+
   return (
     <div className="App">
       <header className="App-header">

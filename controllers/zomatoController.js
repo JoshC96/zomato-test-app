@@ -1,40 +1,43 @@
-const axiosInstance = require("../routes/axiosInstance");
+const { json } = require("body-parser");
+const axiosInstance = require("./axiosInstance");
 
 module.exports = {
-    getPlaces: function(request, response) {
+    getPlaces: function(req, res) {
 
-        axiosInstance.get('/search?lat=-34.9294563&lon=138.5939837')
-            .then(function (res) {
-                return res.json()
+        const data = axiosInstance.get('/search?lat=-34.9294563&lon=138.5939837?max=20')
+            .then(function (response) {
+                return res.json(response.data);
             }).catch(function(err){
                 console.log(err)
             });
-
     },
-    getPlaceDetails: function(request, response) {
+    getPlaceDetails: function(req, res) {
 
         axiosInstance.get('/restaurant?res_id=16587463')
-            .then(function (res) {
-                return res.json()
+            .then(function (response) {
+                return res.json(response.data);
             }).catch(function(err){
                 console.log(err)
             });
 
     },
-    allCategories: function(request, response) {
+    allCategories: function(req, res) {
 
         axiosInstance.get('/categories')
-            .then(function (res) {
-                return res.json()
+            .then(function (response) {
+                return res.json(response.data);
             }).catch(function(err){
                 console.log(err)
             });
     },
-    allCuisines: function(request, response) {
+    allCuisines: function(req, res) {
 
-        axiosInstance.get('/cuisines')
-            .then(function (res) {
-                return res.json()
+
+        // return res.json({"item":"data"})
+
+        axiosInstance.get('/cuisines?city_id=297')
+            .then(function (response) {
+                return res.json(response.data);
             }).catch(function(err){
                 console.log(err)
             });

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const cuisineController = require("../../zomatoController");
+const cuisineController = require("../../controllers/zomatoController");
 
 // Matches with "/api/cuisines"
 router

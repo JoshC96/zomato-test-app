@@ -5,13 +5,13 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Add routes, both API and view
 app.use(routes);
 
-// Serve React app - TODO: CREATE REACT APP
+// Serve React app
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("public/build"));
 }
