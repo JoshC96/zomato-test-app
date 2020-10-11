@@ -15,6 +15,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("public/build"));
 }
 
+// If no API routes are hit, send the React app
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, "public/build/index.html"));
+});
+
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
