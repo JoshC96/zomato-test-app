@@ -1,4 +1,3 @@
-const { json } = require("body-parser");
 const axiosInstance = require("./axiosInstance");
 
 module.exports = {
@@ -11,8 +10,9 @@ module.exports = {
             });
     },
     getPlaceDetails: function(req, res) {
-        axiosInstance.get('/restaurant?res_id=16587463')
+        axiosInstance.get('/restaurant?res_id='+req.params.id)
             .then(function (response) {
+                console.log(response.data)
                 return res.json(response.data);
             }).catch(function(err){
                 console.log(err)
@@ -27,7 +27,7 @@ module.exports = {
             });
     },
     allCuisines: function(req, res) {
-        axiosInstance.get('/cuisines?city_id=297&max=20')
+        axiosInstance.get('/cuisines?city_id=297&count=20')
             .then(function (response) {
                 return res.json(response.data);
             }).catch(function(err){

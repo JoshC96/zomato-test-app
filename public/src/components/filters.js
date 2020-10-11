@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
+import Nouislider from "nouislider-react";
+import "nouislider/distribute/nouislider.css";
 
 function Filters() {
 
@@ -20,13 +22,15 @@ function Filters() {
 
     const getCuisines = () => {
         axios.get("/api/cuisines")
-            .then(response => console.log(response.data)/*setCuisines(response.data)*/)
+            .then(response => {
+                // console.log(response.data.cuisines)
+                setCuisines(response.data.cuisines)
+            })
             .catch(err => console.log(err))
     }
 
     const handleChange = e => {
-        e.preventDefault();
-        console.log()
+        console.log("filter updated")
         // TODO: UPDATE LISTINGS WITH FORM DATA
     };
 
@@ -34,8 +38,8 @@ function Filters() {
     <div className="filters-container bg-white">
         <div className="container">
 
-            <form>
-            <div>
+            <form className="filters-form">
+            <div className="filters-column">
                 <h4>Category:</h4>
                 <div className="category-list"> 
                     {categories.length ? (
@@ -59,7 +63,7 @@ function Filters() {
                     )}
                 </div>
             </div>
-            <div>
+            <div className="filters-column">
                 <h4>Cuisine:</h4>
                 <div className="cuisine-list"> 
                     {cuisines.length ? (
@@ -81,6 +85,24 @@ function Filters() {
                         <p>No cuisines to show</p>
                         </>
                     )}
+                </div>
+            </div>
+            <div className="filters-column">
+                <h4>Rating:</h4>
+                <div className="rating-wrap"> 
+                    <Nouislider 
+                        range={{ min: 0, max: 5 }} 
+                        step={1}
+                        start={[2, 4]} 
+                        onUpdate={handleChange}
+                        connect />
+
+                    <Nouislider 
+                        range={{ min: 1, max: 4 }} 
+                        step={1}
+                        start={[1, 4]} 
+                        onUpdate={handleChange}
+                        connect />
                 </div>
             </div>
 

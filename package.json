@@ -1,28 +1,28 @@
 {
-    "name": "zomato-restaurant-search",
-    "version": "1.0.0",
-    "description": "Search for restaurants using Zomato API",
-    "main": "server.js",
-    "scripts": {
-      "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-      "start:prod": "node server.js",
-      "start:dev": "concurrently \"nodemon --ignore 'public/*'\" \"npm run client\" \"sass --watch public/styles:public/src\"",
-      "client": "cd public && npm run start",
-      "install": "cd public && npm install",
-      "build": "cd public && npm run build"
-    },
-    "author": "Josh Campbell",
-    "license": "MIT",
-    "devDependencies": {
-      "concurrently": "^4.1.2",
-      "nodemon": "^1.18.7"
-    },
-    "dependencies": {
-      "axios" : "^0.18.0",
-      "dotenv": "^8.2.0",
-      "express": "^4.16.3",
-      "if-env": "^1.0.4",
-      "node-cron": "^2.0.3"
-    }
+  "name": "zomato-restaurant-search",
+  "version": "1.0.0",
+  "description": "Search for restaurants using Zomato API",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'public/*'\" \"npm run client\" \"sass --watch public/styles:public/src\"",
+    "client": "cd public && npm run start",
+    "install": "cd public && npm install",
+    "build": "cd public && npm run build"
+  },
+  "author": "Josh Campbell",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
+    "node-cron": "^2.0.3",
+    "nouislider-react": "^3.3.8"
   }
-  
+}

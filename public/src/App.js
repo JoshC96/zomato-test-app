@@ -1,27 +1,42 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import './App.css';
 import './styles.css';
 import Filters from "./components/filters"
+import RestaurantDetails from "./components/restaurant-details"
+import Sidebar from './components/sidebar';
 
 function App() {
 
-  // const getPlaceItems = async () => {
-  //   await axios.get("/api/restaurants")
-  //     .then(function(response){
-  //       return response;
-  //     }).catch(function(err){
-  //       console.log(err)
-  //     })
-  // }
-  // getPlaceItems();
+    const [restaurant, setRestaurant] = useState([]);
+
+    useEffect(() => {
+        getRestaurant()
+    }, [])
+
+    const getRestaurant = (id) => {
+      let restaurantId = id ? id : 16587465 // default restaurant if one is not provided
+      axios.get("/api/restaurants/"+restaurantId)
+          .then(response => {
+              setRestaurant(response.data)
+          })
+          .catch(err => console.log(err))
+    }
 
 
-  return (
-    <div className="App">
-      <Filters />
-    </div>
-  );
+    const handleSidebarButtonClick = (e) => {
+      getRestaurant(e.target.dataset.id)
+    }
+
+    return (
+      <div className="App">
+        <Filters />
+        <div className="container d-flex">
+          <Sidebar handleButtonClick={handleSidebarButtonClick} />
+          <RestaurantDetails restaurant={restaurant}/>
+        </div>
+      </div>
+    );
 }
 
 export default App;
