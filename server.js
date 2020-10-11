@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require("express");
 const routes = require("./routes");
 const app = express();
@@ -13,7 +12,7 @@ app.use(routes);
 
 // Serve React app
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("./public/build"));
+  app.use(express.static("public/build"));
 }
 
 // Start the API server
