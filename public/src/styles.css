@@ -1,6 +1,31 @@
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #f1f1f1;
+}
+
+.bg-light {
+  background-color: #f1f1f1;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.container {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.filters-container {
+  padding: 20px;
+}
+.filters-container .category-list {
+  column-count: 3;
+}
+.filters-container .category-list label {
+  display: block;
+  text-align: left;
 }
 
 /*# sourceMappingURL=styles.css.map */
