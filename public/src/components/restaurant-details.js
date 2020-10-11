@@ -3,6 +3,8 @@ import Restaurant from "./restaurant"
 
 function RestaurantDetails(props) {
 
+    console.log(props)
+
     return (
         <div className="restaurant-container bg-light">
             {props.restaurant.name !== "" ? (

@@ -8,7 +8,11 @@ function Restaurant(props) {
         <div className="restaurant-wrap bg-light">
             
             <div className="restaurant-image-wrap">
-                <img src={props.restaurant.featured_image} alt={props.restaurant.name + "main photo"} crossOrigin="anonymous" />
+                    {props.restaurant.featured_image !== "" ? (
+                        <img src={props.restaurant.featured_image} alt={props.restaurant.name + "main photo"} crossOrigin="anonymous" />
+                    ) : (
+                        <>No image found</>
+                    )}
             </div>
 
             <div className="restaurant-meta">

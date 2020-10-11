@@ -6,7 +6,7 @@ Using Node/Express + React the application shows restaurants using filters and t
 
  - .env is shown in github for demo purposes - this would be left out of a regular app for security purposes
  - Zomato API allows for only 1000 requests per day - my IP was tracked and I was limited in the first day of dev after a looped API request ate through the quota
- - [Deployed to Heroku for public URL of the application](https://zomato-test-app.herokuapp.com/)
+ - [Deployed to Heroku for public URL of the application https://zomato-test-app.herokuapp.com/](https://zomato-test-app.herokuapp.com/)
 
 
 

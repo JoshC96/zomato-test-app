@@ -15,8 +15,7 @@ function App() {
     }, [])
 
     const getRestaurant = (id) => {
-      let restaurantId = id ? id : 16587465 // default restaurant if one is not provided
-      console.log(restaurantId)
+      let restaurantId = id ? id : "19431060" // default restaurant if one is not provided
       axios.get("/api/restaurants/"+restaurantId)
           .then(response => {
               console.log(response)
