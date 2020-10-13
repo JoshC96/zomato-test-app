@@ -12,7 +12,7 @@ function App() {
     const defaultFilterState = {
       category: "",
       cuisine: "",
-      price: ["$","$$$$"],
+      price: ["1","4"],
       rating: ["1", "5"]
     }
 
@@ -40,7 +40,7 @@ function App() {
     return (
       <FilterProvider>
         <div className="App">
-          <Filters setFilterSettings={setFilterSettings} filterSettings={filterSettings}  />
+          <Filters />
           <div className="container d-flex">
             <Sidebar handleButtonClick={handleSidebarButtonClick} filterSettings={filterSettings}/>
             <RestaurantDetails restaurant={restaurant}/>

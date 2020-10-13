@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import { useFilterContext } from "../reducers/filter-context";
 import axios from "axios";
 
 function Sidebar(props) {
 
     const [restaurants, setRestaurants] = useState([]);
-    // const [filterSettings, setFilterSettings] = useState(props.filterSettings);
+    const [state, dispatch] = useFilterContext();
 
     useEffect(() => {
         getRestaurants()
@@ -12,7 +13,6 @@ function Sidebar(props) {
   
     const getRestaurants = () => {
         // TODO: SEND FILTER PROPERTIES TO RESTAURANT ROUTE
-        // console.log(filterSettings)
         axios.get("/api/restaurants")
             .then(response => {
                 setRestaurants(response.data.restaurants)

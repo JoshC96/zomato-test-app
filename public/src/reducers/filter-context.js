@@ -1,33 +1,35 @@
 import React, { createContext, useReducer, useContext } from "react";
 
-const FilterContext = createContext({
-    category: "",
-    cuisine: "",
-    price: ["$","$$$$"],
-    rating: ["1", "5"]
-});
+const defaultState = {
+  category: "",
+  cuisine: "",
+  price: ["1","4"],
+  rating: ["1", "5"]
+};
+
+const FilterContext = createContext(defaultState);
 const { Provider } = FilterContext;
 
-const reducer = (state, action) => {
+const filterReducer = (state, action) => {
   switch (action.type) {
-    case "updateCuisines":
-        return state.cuisine += "," + action.cuisineName;
+    case "updateCuisine":
+        return state.cuisine !== "undefined" ? {...state, cuisine: state.cuisine+ "," + action.cuisineId} : state;
     case "updateCategory":
-        return state.category += "," + action.categoryName;
+        return state.category !== "undefined" ? {...state, category: state.category+ "," + action.categoryId} : state;
     case "updatePriceRange":
-        return state.price = action.priceRange;
+        return {...state, price: action.priceRange}
     case "updateRatingRange":
-        return state.rating = action.ratingRange;
+        return {...state, rating: action.ratingRange}
     default:
-        throw new Error(`Invalid action: ${action.type}`);
+        return state;
   }
 };
 
-const FilterProvider = ({ value = 0, ...props }) => {
-  const [state, dispatch] = useReducer(reducer, { count: value });
+const FilterProvider = ({ value = [], ...props }) => {
+  const [state, dispatch] = useReducer(filterReducer, defaultState);
 
   return <Provider value={[state, dispatch]} {...props} />;
-};
+}
 
 const useFilterContext = () => {
   return useContext(FilterContext);
