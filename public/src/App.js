@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { FilterProvider } from "./reducers/filter-context";
 import axios from "axios";
 import './App.css';
 import './styles.css';
@@ -8,7 +9,15 @@ import Sidebar from './components/sidebar';
 
 function App() {
 
+    const defaultFilterState = {
+      category: "",
+      cuisine: "",
+      price: ["$","$$$$"],
+      rating: ["1", "5"]
+    }
+
     const [restaurant, setRestaurant] = useState([]);
+    const [filterSettings, setFilterSettings] = useState(defaultFilterState);
 
     useEffect(() => {
         getRestaurant()
@@ -18,7 +27,6 @@ function App() {
       let restaurantId = id ? id : "19431060" // default restaurant if one is not provided
       axios.get("/api/restaurants/"+restaurantId)
           .then(response => {
-              console.log(response)
               setRestaurant(response.data)
           })
           .catch(err => console.log(err))
@@ -26,17 +34,19 @@ function App() {
 
 
     const handleSidebarButtonClick = (e) => {
-      getRestaurant(e.target.dataset.id)
-    }
+        getRestaurant(e.target.dataset.id)
+    }    
 
     return (
-      <div className="App">
-        <Filters />
-        <div className="container d-flex">
-          <Sidebar handleButtonClick={handleSidebarButtonClick} />
-          <RestaurantDetails restaurant={restaurant}/>
+      <FilterProvider>
+        <div className="App">
+          <Filters setFilterSettings={setFilterSettings} filterSettings={filterSettings}  />
+          <div className="container d-flex">
+            <Sidebar handleButtonClick={handleSidebarButtonClick} filterSettings={filterSettings}/>
+            <RestaurantDetails restaurant={restaurant}/>
+          </div>
         </div>
-      </div>
+      </FilterProvider>
     );
 }
 

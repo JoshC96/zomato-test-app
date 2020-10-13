@@ -4,16 +4,17 @@ import axios from "axios";
 function Sidebar(props) {
 
     const [restaurants, setRestaurants] = useState([]);
+    // const [filterSettings, setFilterSettings] = useState(props.filterSettings);
 
     useEffect(() => {
         getRestaurants()
     }, [])
-
   
     const getRestaurants = () => {
+        // TODO: SEND FILTER PROPERTIES TO RESTAURANT ROUTE
+        // console.log(filterSettings)
         axios.get("/api/restaurants")
             .then(response => {
-                console.log(response.data.restaurants)
                 setRestaurants(response.data.restaurants)
             })
             .catch(err => console.log(err))
