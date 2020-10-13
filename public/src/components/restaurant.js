@@ -51,8 +51,13 @@ function Restaurant(props) {
                 </h3>
                 <h4>Phone</h4>
                 <h3>
+                    {/* 
+                        CHECK IF PHONE NUMBER EXISTS AND IS A STRING
+                        SPLIT OFF FIRST NUMBER WITH STRING.SPLIT()[0]
+                        PARSE PHONE NUMBER INTO AU FORMAT
+                    */}
                     {props.restaurant.phone_numbers && props.restaurant.phone_numbers !== "" ? (
-                        <> {parsePhoneNumber(String(props.restaurant.phone_numbers), 'AU').formatNational()}</>
+                        <> {parsePhoneNumber(String(props.restaurant.phone_numbers.split(",")[0]), 'AU').formatNational()}</>
                     ) : (
                         <>No phone number available</>
                     )}

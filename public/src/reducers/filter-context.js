@@ -8,24 +8,35 @@ const defaultState = {
   restaurants: []
 };
 
+let count = 0;
+
 const FilterContext = createContext(defaultState);
 const { Provider } = FilterContext;
 
 const filterReducer = (state, action) => {
+
+  let returnValue;
+
   switch (action.type) {
     case "updateCuisine":
-        return state.cuisine !== "undefined" ? {...state, cuisine: state.cuisine+ "," + action.cuisineId} : state;
+        returnValue = action.cuisineId ? {...state, cuisine: state.cuisine+ "," + action.cuisineId} : {...state};
+        break;
     case "updateCategory":
-        return state.category !== "undefined" ? {...state, category: state.category+ "," + action.categoryId} : state;
+        returnValue = action.categoryId ? {...state, category: state.category+ "," + action.categoryId} : {...state};
+        break;
     case "updatePriceRange":
-        return {...state, price: action.priceRange}
+        returnValue = {...state, price: action.priceRange}
+        break;
     case "updateRatingRange":
-        return {...state, rating: action.ratingRange}
+        returnValue = {...state, rating: action.ratingRange}
+        break;
     case "updateRestaurants":
-      return {...state, restaurants: action.restaurants}
-    default:
-        return state;
+        returnValue = action.restaurants ? {...state, restaurants: action.restaurants} : {...state};
+        break;
   }
+  
+  return returnValue;
+
 };
 
 const FilterProvider = ({ value = [], ...props }) => {
