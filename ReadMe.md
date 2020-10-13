@@ -22,7 +22,6 @@ Using SASS for styling - runs when ```npm run start``` is run - declared in pack
 
 ## Tools used
 
-- Create-react-app with npx. Created excess files I would like to clean up
 - [Axios for API GET requests](https://github.com/axios/axios)
 - [Sass for CSS](https://sass-lang.com/)
 - [Phone number formatter](https://www.npmjs.com/package/libphonenumber-js)
