@@ -39,6 +39,10 @@ img{
         .filters-column{
             width: 33%;
             padding: 0 28px;
+
+            h4{
+                text-align: left;
+            }
         }
 
         .cuisine-list,
@@ -69,14 +73,32 @@ img{
         text-align: left;
 
         h1, p{
+            margin: 0;
+        }
+
+        h4{
+          text-transform: uppercase;  
+          letter-spacing: 2px;
+          margin: 0;
+        }
+
+        h3{
             margin-top: 0;
+            font-weight: 400;
         }
 
         .icon-holder{
             display: flex;
             align-items: center;
+            margin-top: 15px;
+
             img{
                 max-width: 30px;
+            }
+
+            &:last-of-type{
+                margin-top: 0;
+                margin-bottom: 15px;
             }
         }
 
@@ -129,13 +151,41 @@ img{
 }
 
 .noUi-target{
+    margin: 30px 0 40px;
+
     &:last-child{
-        margin-top: 40px;
+        margin-bottom: 0;
     }
 
-    &.noUi-horizontal .noUi-tooltip{
-        bottom: -38px;
-        font-size: 12px;
+    &.noUi-horizontal{
+        height: 13px;
+        background:#f1f1f1;
         border: none;
-    }
+
+        .noUi-connect{
+            background: #50bebf;
+        }
+
+        .noUi-tooltip{
+            bottom: -38px;
+            font-size: 12px;
+            border: none;
+        }
+        .noUi-handle{
+            border: 2px solid #50bebf;
+            border-radius: 50%;
+            height: 22px;
+            width: 22px;
+            top: -5px;
+
+            &,.noUi-touch-area{
+                outline: none;
+            }
+
+            &:before, 
+            &:after{
+                display: none;
+            }
+        }
+    } 
 }

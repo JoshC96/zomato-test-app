@@ -40,6 +40,9 @@ img {
   width: 33%;
   padding: 0 28px;
 }
+.filters-container .filters-form .filters-column h4 {
+  text-align: left;
+}
 .filters-container .filters-form .cuisine-list label,
 .filters-container .filters-form .category-list label {
   user-select: none;
@@ -62,14 +65,28 @@ img {
   text-align: left;
 }
 .restaurant-container .restaurant-wrap h1, .restaurant-container .restaurant-wrap p {
+  margin: 0;
+}
+.restaurant-container .restaurant-wrap h4 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+.restaurant-container .restaurant-wrap h3 {
   margin-top: 0;
+  font-weight: 400;
 }
 .restaurant-container .restaurant-wrap .icon-holder {
   display: flex;
   align-items: center;
+  margin-top: 15px;
 }
 .restaurant-container .restaurant-wrap .icon-holder img {
   max-width: 30px;
+}
+.restaurant-container .restaurant-wrap .icon-holder:last-of-type {
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 .restaurant-container .restaurant-wrap .restaurant-image-wrap {
   width: 40%;
@@ -110,13 +127,37 @@ img {
   background-color: #50bebf;
 }
 
+.noUi-target {
+  margin: 30px 0 40px;
+}
 .noUi-target:last-child {
-  margin-top: 40px;
+  margin-bottom: 0;
+}
+.noUi-target.noUi-horizontal {
+  height: 13px;
+  background: #f1f1f1;
+  border: none;
+}
+.noUi-target.noUi-horizontal .noUi-connect {
+  background: #50bebf;
 }
 .noUi-target.noUi-horizontal .noUi-tooltip {
   bottom: -38px;
   font-size: 12px;
   border: none;
+}
+.noUi-target.noUi-horizontal .noUi-handle {
+  border: 2px solid #50bebf;
+  border-radius: 50%;
+  height: 22px;
+  width: 22px;
+  top: -5px;
+}
+.noUi-target.noUi-horizontal .noUi-handle, .noUi-target.noUi-horizontal .noUi-handle .noUi-touch-area {
+  outline: none;
+}
+.noUi-target.noUi-horizontal .noUi-handle:before, .noUi-target.noUi-horizontal .noUi-handle:after {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

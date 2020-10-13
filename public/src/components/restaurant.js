@@ -1,4 +1,5 @@
 import React from 'react';
+import parsePhoneNumber from 'libphonenumber-js'
 import tick from '../images/green-tick.svg';
 import cross from '../images/red-cross.svg';
 
@@ -33,13 +34,37 @@ function Restaurant(props) {
                         <><img src={cross} alt="No Bookings" />No Bookings</>
                     )}
                 </p>
-                <p  className="icon-holder">
+                <p className="icon-holder">
                     {props.restaurant.has_online_delivery ? (
                         <> <img src={tick} alt="Bookings Available" />Delivery Available</>
                     ) : (
                         <><img src={cross} alt="No Delivery" />No Delivery</>
                     )}
                 </p>
+                <h4>Cuisines</h4>
+                <h3>
+                    {props.restaurant.cuisines ? (
+                        <> {props.restaurant.cuisines}</>
+                    ) : (
+                        <>No listed cuisines</>
+                    )}
+                </h3>
+                <h4>Phone</h4>
+                <h3>
+                    {props.restaurant.phone_numbers ? (
+                        <> {parsePhoneNumber(props.restaurant.phone_numbers, 'AU').formatNational()}</>
+                    ) : (
+                        <>No phone number available</>
+                    )}
+                </h3>
+                <h4>Opening Hours</h4>
+                <h3>
+                    {props.restaurant.timings ? (
+                        <> {props.restaurant.timings}</>
+                    ) : (
+                        <>No opening hours available</>
+                    )}
+                </h3>
             </div>
 
         </div>

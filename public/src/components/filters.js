@@ -78,7 +78,7 @@ function Filters() {
                 <h4>Cuisine:</h4>
                 <div className="cuisine-list"> 
                     {cuisines.length ? (
-                        cuisines.slice(100).map((cuisine, index) => {
+                        cuisines.slice(110).map((cuisine, index) => {
                             return ( 
                                 <label key={index}>
                                 {cuisine.cuisine.cuisine_name}
@@ -109,7 +109,7 @@ function Filters() {
                         onUpdate={handleRatingSliderChange}
                         connect
                         tooltips  />
-
+                <h4>Cost:</h4>
                     <Nouislider 
                         data-filterid="filter-price"
                         range={{ min: 1, max: 4 }} 
