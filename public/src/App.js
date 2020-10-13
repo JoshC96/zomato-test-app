@@ -9,15 +9,7 @@ import Sidebar from './components/sidebar';
 
 function App() {
 
-    const defaultFilterState = {
-      category: "",
-      cuisine: "",
-      price: ["1","4"],
-      rating: ["1", "5"]
-    }
-
     const [restaurant, setRestaurant] = useState([]);
-    const [filterSettings, setFilterSettings] = useState(defaultFilterState);
 
     useEffect(() => {
         getRestaurant()
@@ -42,7 +34,7 @@ function App() {
         <div className="App">
           <Filters />
           <div className="container d-flex">
-            <Sidebar handleButtonClick={handleSidebarButtonClick} filterSettings={filterSettings}/>
+            <Sidebar handleButtonClick={handleSidebarButtonClick}/>
             <RestaurantDetails restaurant={restaurant}/>
           </div>
         </div>

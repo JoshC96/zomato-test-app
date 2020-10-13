@@ -1,31 +1,35 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState,useEffect} from 'react';
 import { useFilterContext } from "../reducers/filter-context";
 import axios from "axios";
 
 function Sidebar(props) {
 
-    const [restaurants, setRestaurants] = useState([]);
     const [state, dispatch] = useFilterContext();
 
     useEffect(() => {
-        getRestaurants()
-    }, [])
-  
-    const getRestaurants = () => {
-        // TODO: SEND FILTER PROPERTIES TO RESTAURANT ROUTE
-        axios.get("/api/restaurants")
+        getRestaurants().then(function(result) {
+            dispatch({
+                type: "updateRestaurants",
+                restaurants: result
+            });
+        })
+    },[])
+
+    const getRestaurants = async () => {
+        let queryParams = {params: {cuisine:state.cuisine,category:state.category,start:1}};
+        return await axios.get("/api/restaurants",queryParams)
             .then(response => {
-                setRestaurants(response.data.restaurants)
+                return response.data.restaurants;
             })
             .catch(err => console.log(err))
     }
 
     return (
         <div className="sidebar bg-grey">
-            <h5>Results</h5>
+            <h5>Results: </h5>
             <ul className="restaurant-list">
-                {restaurants.length ? (
-                    restaurants.map((item, index) => {
+                {state.restaurants.length ? (
+                    state.restaurants.map((item, index) => {
                         return ( 
                             <li key={index}>
                                 <button onClick={props.handleButtonClick} data-id={item.restaurant.id}>
@@ -36,7 +40,6 @@ function Sidebar(props) {
                     })
                 ) : (
                     <>
-                    {/* ERROR LOG HERE */}
                     <p>Preloader here</p>
                     </>
                 )}

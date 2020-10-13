@@ -4,7 +4,8 @@ const defaultState = {
   category: "",
   cuisine: "",
   price: ["1","4"],
-  rating: ["1", "5"]
+  rating: ["1", "5"],
+  restaurants: []
 };
 
 const FilterContext = createContext(defaultState);
@@ -20,6 +21,8 @@ const filterReducer = (state, action) => {
         return {...state, price: action.priceRange}
     case "updateRatingRange":
         return {...state, rating: action.ratingRange}
+    case "updateRestaurants":
+      return {...state, restaurants: action.restaurants}
     default:
         return state;
   }
