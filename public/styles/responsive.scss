@@ -1,9 +1,16 @@
 @media only screen and (max-width:991px){
+
+    .w-15,
+    .w-25,
+    .w-40,
+    .w-50{
+        width: 100%;
+    }
+
     .filters-container{
         .filters-form{
             flex-direction: column;
             .filters-column{
-                width: 100%;
                 max-width: 100%;
                 padding: 0;
 
@@ -19,10 +26,7 @@
 
     .noUi-target.noUi-horizontal {
         width: 95%;
-        margin: 0 auto;
-        &:last-child{
-            margin-bottom: 40px;
-        }
+        margin: 30px auto 40px;
     }
 
     .container{
@@ -34,6 +38,8 @@
     }
 
     .restaurant-container{
+        padding: 20px;
+        width: auto;
         .restaurant-wrap{
             flex-direction: column;
 

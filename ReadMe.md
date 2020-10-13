@@ -27,3 +27,14 @@ Using SASS for styling - runs when ```npm run start``` is run - declared in pack
 - [Sass for CSS](https://sass-lang.com/)
 - [Phone number formatter](https://www.npmjs.com/package/libphonenumber-js)
 - [React noUISlider for rating sliders](https://www.npmjs.com/package/nouislider-react)
+
+
+## License
+            
+This project is licenced under the MIT license. 
+            
+## Author
+
+[Josh Campbell](https://github.com/JoshC96)
+
+![avatar](https://avatars3.githubusercontent.com/u/31444107?s=60&v=4)

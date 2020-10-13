@@ -11,6 +11,10 @@ function Filters() {
     const [cuisines, setCuisines] = useState([]);
     const [state, dispatch] = useFilterContext();
 
+    // USED IN FILTER FUNCTION BELOW TO USE THE SET.HAS() FUNCTION FOR FASTER LOOPING
+    const pickedCategoryIds = new Set([1, 2, 5, 11]);
+    const pickedCuisineIds = new Set([3, 5, 25, 40, 55, 304,983,110, 161,82]);
+
     useEffect(() => {
         getCategories()
         getCuisines()
@@ -50,11 +54,11 @@ function Filters() {
         <div className="container">
 
             <form className="filters-form" >
-            <div className="filters-column">
+            <div className="filters-column w-15">
                 <h4>Category:</h4>
                 <div className="category-list"> 
                     {categories.length ? (
-                        categories.map((category, index) => {
+                        categories.filter((value) => pickedCategoryIds.has(value.categories.id)).map((category, index) => {
                             return ( 
                                 <label key={index}>
                                 {category.categories.name}
@@ -74,11 +78,11 @@ function Filters() {
                     )}
                 </div>
             </div>
-            <div className="filters-column">
+            <div className="filters-column w-40 mr-auto">
                 <h4>Cuisine:</h4>
                 <div className="cuisine-list"> 
                     {cuisines.length ? (
-                        cuisines.slice(110).map((cuisine, index) => {
+                        cuisines.filter((value) => pickedCuisineIds.has(value.cuisine.cuisine_id)).map((cuisine, index) => {
                             return ( 
                                 <label key={index}>
                                 {cuisine.cuisine.cuisine_name}
@@ -98,7 +102,7 @@ function Filters() {
                     )}
                 </div>
             </div>
-            <div className="filters-column">
+            <div className="filters-column w-25">
                 <h4>Rating:</h4>
                 <div className="rating-wrap"> 
                     <Nouislider 
@@ -109,7 +113,9 @@ function Filters() {
                         onUpdate={handleRatingSliderChange}
                         connect
                         tooltips  />
+                </div>
                 <h4>Cost:</h4>
+                <div className="rating-wrap">
                     <Nouislider 
                         data-filterid="filter-price"
                         range={{ min: 1, max: 4 }} 
