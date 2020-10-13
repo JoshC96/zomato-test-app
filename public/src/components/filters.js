@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
+import { useFilterContext } from "../reducers/filter-context";
 import axios from "axios";
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
 
 function Filters(props) {
 
+    // REMOVE CATEGORIES AND CUISINE - USE GLOBAL STATE
     const [categories, setCategories] = useState([]);
     const [cuisines, setCuisines] = useState([]);
+    // KEEP
+    const [state, dispatch] = useFilterContext();
 
     useEffect(() => {
         getCategories()
@@ -27,6 +31,7 @@ function Filters(props) {
             .catch(err => console.log(err))
     }
 
+    // REMOVE 
     const handleChange = e => {
         if(e.target.name.includes('category'))
         {
@@ -42,6 +47,7 @@ function Filters(props) {
 
     // USING TWO DIFFERENT FUNCTIONS AS THE NOUISLIDER COMPONENT CAN'T TAKE A REF
     // DISLIKE REPEATING SIMILAR FUNCTION
+    // REPLACE FUNCTIONS WITH STATE DISPATCH ACTION
     const handleRatingSliderChange = targetValues => {
         props.filterSettings.rating = targetValues;
         props.setFilterSettings(props.filterSettings)
@@ -68,6 +74,7 @@ function Filters(props) {
                                     name={"category-"+category.categories.name}
                                     data-filterid={category.categories.id}
                                     type="checkbox"
+                                    // REPLACE WITH FILTERCONTEXT DISPATCH
                                     onChange={handleChange} />
                                 </label>
                             )
@@ -92,6 +99,7 @@ function Filters(props) {
                                     name={"cuisine-"+cuisine.cuisine.cuisine_name}
                                     data-filterid={cuisine.cuisine.cuisine_id}
                                     type="checkbox"
+                                    // REPLACE WITH FILTERCONTEXT DISPATCH
                                     onChange={handleChange} />
                                 </label>
                             )
@@ -109,7 +117,7 @@ function Filters(props) {
                 <div className="rating-wrap"> 
                     <Nouislider 
                         data-filterid="filter-rating"
-                        range={{ min: 0, max: 5 }} 
+                        range={{ min: 1, max: 5 }} 
                         step={1}
                         start={[2, 4]} 
                         onUpdate={handleRatingSliderChange}
