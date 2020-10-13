@@ -1,4 +1,6 @@
 import React from 'react';
+import tick from '../images/green-tick.svg';
+import cross from '../images/red-cross.svg';
 
 function Restaurant(props) {
 
@@ -24,18 +26,18 @@ function Restaurant(props) {
                         <>No location found</>
                     )}
                 </p>
-                <p>
+                <p className="icon-holder">
                     {props.restaurant.is_table_reservation_supported ? (
-                        <>Bookings Available</>
+                        <> <img src={tick} alt="Bookings Available" /> Bookings Available</>
                     ) : (
-                        <>No bookings</>
+                        <><img src={cross} alt="No Bookings" />No Bookings</>
                     )}
                 </p>
-                <p>
+                <p  className="icon-holder">
                     {props.restaurant.has_online_delivery ? (
-                        <>Delivery Available</>
+                        <> <img src={tick} alt="Bookings Available" />Delivery Available</>
                     ) : (
-                        <>No delivery</>
+                        <><img src={cross} alt="No Delivery" />No Delivery</>
                     )}
                 </p>
             </div>

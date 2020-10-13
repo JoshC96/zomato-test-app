@@ -72,6 +72,14 @@ img{
             margin-top: 0;
         }
 
+        .icon-holder{
+            display: flex;
+            align-items: center;
+            img{
+                max-width: 30px;
+            }
+        }
+
         .restaurant-image-wrap{
             width: 40%;
         }

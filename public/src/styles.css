@@ -64,6 +64,13 @@ img {
 .restaurant-container .restaurant-wrap h1, .restaurant-container .restaurant-wrap p {
   margin-top: 0;
 }
+.restaurant-container .restaurant-wrap .icon-holder {
+  display: flex;
+  align-items: center;
+}
+.restaurant-container .restaurant-wrap .icon-holder img {
+  max-width: 30px;
+}
 .restaurant-container .restaurant-wrap .restaurant-image-wrap {
   width: 40%;
 }

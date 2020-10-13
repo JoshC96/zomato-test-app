@@ -1,3 +1,4 @@
+require('dotenv').config()
 const axios = require("axios");
 
 const axiosInstance = axios.create({
@@ -7,7 +8,7 @@ const axiosInstance = axios.create({
     headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-        'user-key' : 'd59feda09d10d77f26582f08bfcb519d'
+        'user-key' : process.env.ZOMATO_API_KEY
     }
 });
 
