@@ -30,7 +30,7 @@ img {
 }
 
 .filters-container {
-  padding: 20px;
+  padding: 20px 0;
 }
 .filters-container .filters-form {
   display: flex;

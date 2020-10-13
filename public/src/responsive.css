@@ -1,0 +1,43 @@
+@media only screen and (max-width: 991px) {
+  .filters-container .filters-form {
+    flex-direction: column;
+  }
+  .filters-container .filters-form .filters-column {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  .filters-container .filters-form .filters-column h4,
+.filters-container .filters-form .filters-column .rating-wrap,
+.filters-container .filters-form .filters-column .category-list,
+.filters-container .filters-form .filters-column .cuisine-list {
+    padding: 0 12px;
+  }
+
+  .noUi-target.noUi-horizontal {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .noUi-target.noUi-horizontal:last-child {
+    margin-bottom: 40px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .restaurant-container .restaurant-wrap {
+    flex-direction: column;
+  }
+  .restaurant-container .restaurant-wrap .restaurant-image-wrap,
+.restaurant-container .restaurant-wrap .restaurant-meta {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */

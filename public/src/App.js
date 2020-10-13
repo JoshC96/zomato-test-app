@@ -3,6 +3,7 @@ import { FilterProvider } from "./reducers/filter-context";
 import axios from "axios";
 import './App.css';
 import './styles.css';
+import './responsive.css';
 import Filters from "./components/filters"
 import RestaurantDetails from "./components/restaurant-details"
 import Sidebar from './components/sidebar';

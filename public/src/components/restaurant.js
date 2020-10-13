@@ -43,7 +43,7 @@ function Restaurant(props) {
                 </p>
                 <h4>Cuisines</h4>
                 <h3>
-                    {props.restaurant.cuisines ? (
+                    {props.restaurant.cuisines !== "" ? (
                         <> {props.restaurant.cuisines}</>
                     ) : (
                         <>No listed cuisines</>
@@ -51,15 +51,15 @@ function Restaurant(props) {
                 </h3>
                 <h4>Phone</h4>
                 <h3>
-                    {props.restaurant.phone_numbers ? (
-                        <> {parsePhoneNumber(props.restaurant.phone_numbers, 'AU').formatNational()}</>
+                    {props.restaurant.phone_numbers && props.restaurant.phone_numbers !== "" ? (
+                        <> {parsePhoneNumber(String(props.restaurant.phone_numbers), 'AU').formatNational()}</>
                     ) : (
                         <>No phone number available</>
                     )}
                 </h3>
                 <h4>Opening Hours</h4>
                 <h3>
-                    {props.restaurant.timings ? (
+                    {props.restaurant.timings !== "" ? (
                         <> {props.restaurant.timings}</>
                     ) : (
                         <>No opening hours available</>

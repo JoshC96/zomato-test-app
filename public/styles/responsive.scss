@@ -1,0 +1,47 @@
+@media only screen and (max-width:991px){
+    .filters-container{
+        .filters-form{
+            flex-direction: column;
+            .filters-column{
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+
+                h4,
+                .rating-wrap,
+                .category-list,
+                .cuisine-list{
+                    padding: 0 12px;
+                }
+            }
+        }
+    }
+
+    .noUi-target.noUi-horizontal {
+        width: 95%;
+        margin: 0 auto;
+        &:last-child{
+            margin-bottom: 40px;
+        }
+    }
+
+    .container{
+        flex-direction: column;
+    }
+
+    .sidebar{
+        width: 100%;
+    }
+
+    .restaurant-container{
+        .restaurant-wrap{
+            flex-direction: column;
+
+            .restaurant-image-wrap,
+            .restaurant-meta{
+                padding: 0;
+                width: 100%;
+            }
+        }   
+    } 
+}
