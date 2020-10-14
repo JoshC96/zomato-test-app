@@ -8,7 +8,15 @@ Using Node/Express + React the application shows restaurants using filters and t
  - Zomato API allows for only 1000 requests per day - my IP was tracked and I was limited in the first day of dev after a looped API request ate through the quota
  - [Deployed to Heroku for public URL of the application https://zomato-test-app.herokuapp.com/](https://zomato-test-app.herokuapp.com/)
 
- ## API Routes
+## Running the application locally
+
+If the above heroku app doesn't run, pull the repo down and navigate to the zomato-test-app root directory
+
+Make sure NodeJS is installed then run ``` npm install ``` to download npm modules
+
+Then run ``` npm run start ``` all necessary processes will start: Express, React, Sass, etc
+
+## API Routes
 
  Using Express routes and the directory structure the app can ping /api/cuisines to get data - the /api/cuisines file will use the controllers/zomatoController to make requests to the API
 
