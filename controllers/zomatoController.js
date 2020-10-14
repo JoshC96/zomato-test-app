@@ -2,7 +2,6 @@ const axiosInstance = require("./axiosInstance");
 
 module.exports = {
     getPlaces: function(req, res) {
-        
         let cat =  req.query.category ? `&category=${req.query.category}` : "";
         let cui = req.query.cuisine ? `&cuisines=${req.query.cuisine}` : "";
         console.log(`/search?lat=-34.9294563&lon=138.5939837&count=20${cat}${cui}&start=${req.query.start}`)

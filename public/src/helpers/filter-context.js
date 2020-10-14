@@ -1,4 +1,5 @@
 import React, { createContext, useReducer, useContext } from "react";
+import helpers from "./helper-functions"
 
 const defaultState = {
   category: "",
@@ -7,26 +8,6 @@ const defaultState = {
   rating: ["1", "5"],
   restaurants: []
 };
-
-// WILL ADD AND REMOVE ITEMS FROM THE SELECTED CATEGORY AND CUISINE LISTS
-const arrayHelper = (id, selectedList) => {
-
-  let updatedList = selectedList.split(",");
-  let idToAdd = id.toString();
-
-  if(updatedList[0] === ""){
-    updatedList.shift()
-  }
-
-  if (updatedList.indexOf(idToAdd) > -1) {
-    updatedList.splice(updatedList.indexOf(idToAdd), 1);
-  }
-  else
-  {
-    updatedList.push(idToAdd.toString())
-  }
-  return updatedList;
-}
 
 const FilterContext = createContext(defaultState);
 const { Provider } = FilterContext;
@@ -37,11 +18,11 @@ const filterReducer = (state, action) => {
 
   switch (action.type) {
     case "updateCuisine":
-          let cuisineList = arrayHelper(action.cuisineId,state.cuisine).join()
+          let cuisineList = helpers.stateArrayHelper(action.cuisineId,state.cuisine).join()
           returnValue = action.cuisineId ? {...state, cuisine: cuisineList} : {...state};
         break;
     case "updateCategory":
-          let categoryList = arrayHelper(action.categoryId,state.category).join()
+          let categoryList = helpers.stateArrayHelper(action.categoryId,state.category).join()
           returnValue = action.categoryId ? {...state, category:categoryList} : {...state};
         break;
     case "updatePriceRange":
@@ -52,6 +33,8 @@ const filterReducer = (state, action) => {
         break;
     case "updateRestaurants":
           returnValue = action.restaurants ? {...state, restaurants: action.restaurants} : {...state};
+        break;
+    default: 
         break;
   }
 

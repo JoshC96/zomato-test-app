@@ -43,6 +43,10 @@
         .restaurant-wrap{
             flex-direction: column;
 
+            h3{
+                font-size: 19px;
+            }
+
             .restaurant-image-wrap,
             .restaurant-meta{
                 padding: 0;

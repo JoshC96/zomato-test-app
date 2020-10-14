@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { FilterProvider } from "./reducers/filter-context";
+import { FilterProvider } from "./helpers/filter-context";
 import axios from "axios";
 import './App.css';
 import './styles.css';

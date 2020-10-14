@@ -40,6 +40,9 @@
   .restaurant-container .restaurant-wrap {
     flex-direction: column;
   }
+  .restaurant-container .restaurant-wrap h3 {
+    font-size: 19px;
+  }
   .restaurant-container .restaurant-wrap .restaurant-image-wrap,
 .restaurant-container .restaurant-wrap .restaurant-meta {
     padding: 0;

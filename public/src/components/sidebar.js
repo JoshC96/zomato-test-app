@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import { useFilterContext } from "../reducers/filter-context";
+import { useFilterContext } from "../helpers/filter-context";
 import axios from "axios";
+import helpers from "../helpers/helper-functions";
 
 function Sidebar(props) {
 
@@ -8,24 +9,17 @@ function Sidebar(props) {
 
     useEffect(() => {
         getRestaurants().then(function(result) {
-            dispatch({
-                type: "updateRestaurants",
-                restaurants: result
-            });
+            dispatch({type: "updateRestaurants",restaurants: result});
         })
-    },[state.cuisine])
+    },[state.cuisine, state.category, state.price, state.rating])
 
-    useEffect(() => {
-        getRestaurants().then(function(result) {
-            dispatch({
-                type: "updateRestaurants",
-                restaurants: result
-            });
-        })
-    },[state.category])
+    // useEffect(() => {
+    //     getRestaurants().then(function(result) {
+    //         dispatch({type: "updateRestaurants",restaurants: result});
+    //     })
+    // },[state.category])
 
     const getRestaurants = async () => {
-        console.log(state.cuisine)
         let queryParams = {
             params: {
                 cuisine:state.cuisine,
@@ -35,7 +29,8 @@ function Sidebar(props) {
         };
         return await axios.get("/api/restaurants",queryParams)
             .then(response => {
-                return response.data.restaurants;
+                let filteredData = helpers.filterBySliders(response.data.restaurants,state.price,state.rating )
+                return filteredData;
             })
             .catch(err => console.log(err))
     }

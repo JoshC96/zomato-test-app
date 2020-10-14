@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useFilterContext } from "../reducers/filter-context";
+import { useFilterContext } from "../helpers/filter-context";
 import axios from "axios";
 import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
@@ -112,7 +112,7 @@ function Filters() {
                         data-filterid="filter-rating"
                         range={{ min: 1, max: 5 }} 
                         step={1}
-                        start={[2, 4]} 
+                        start={["1",  "5"]} 
                         onSlide={handleRatingSliderChange}
                         connect  />
                     <span className="slider-label right">5</span>
