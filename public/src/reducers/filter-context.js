@@ -8,7 +8,25 @@ const defaultState = {
   restaurants: []
 };
 
-let count = 0;
+// WILL ADD AND REMOVE ITEMS FROM THE SELECTED CATEGORY AND CUISINE LISTS
+const arrayHelper = (id, selectedList) => {
+
+  let updatedList = selectedList.split(",");
+  let idToAdd = id.toString();
+
+  if(updatedList[0] === ""){
+    updatedList.shift()
+  }
+
+  if (updatedList.indexOf(idToAdd) > -1) {
+    updatedList.splice(updatedList.indexOf(idToAdd), 1);
+  }
+  else
+  {
+    updatedList.push(idToAdd.toString())
+  }
+  return updatedList;
+}
 
 const FilterContext = createContext(defaultState);
 const { Provider } = FilterContext;
@@ -19,22 +37,24 @@ const filterReducer = (state, action) => {
 
   switch (action.type) {
     case "updateCuisine":
-        returnValue = action.cuisineId ? {...state, cuisine: state.cuisine+ "," + action.cuisineId} : {...state};
+          let cuisineList = arrayHelper(action.cuisineId,state.cuisine).join()
+          returnValue = action.cuisineId ? {...state, cuisine: cuisineList} : {...state};
         break;
     case "updateCategory":
-        returnValue = action.categoryId ? {...state, category: state.category+ "," + action.categoryId} : {...state};
+          let categoryList = arrayHelper(action.categoryId,state.category).join()
+          returnValue = action.categoryId ? {...state, category:categoryList} : {...state};
         break;
     case "updatePriceRange":
-        returnValue = {...state, price: action.priceRange}
+          returnValue = {...state, price: action.priceRange}
         break;
     case "updateRatingRange":
-        returnValue = {...state, rating: action.ratingRange}
+          returnValue = {...state, rating: action.ratingRange}
         break;
     case "updateRestaurants":
-        returnValue = action.restaurants ? {...state, restaurants: action.restaurants} : {...state};
+          returnValue = action.restaurants ? {...state, restaurants: action.restaurants} : {...state};
         break;
   }
-  
+
   return returnValue;
 
 };

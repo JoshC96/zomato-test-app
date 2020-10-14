@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useFilterContext } from "../reducers/filter-context";
 import axios from "axios";
 
@@ -13,10 +13,26 @@ function Sidebar(props) {
                 restaurants: result
             });
         })
-    },[])
+    },[state.cuisine])
+
+    useEffect(() => {
+        getRestaurants().then(function(result) {
+            dispatch({
+                type: "updateRestaurants",
+                restaurants: result
+            });
+        })
+    },[state.category])
 
     const getRestaurants = async () => {
-        let queryParams = {params: {cuisine:state.cuisine,category:state.category,start:1}};
+        console.log(state.cuisine)
+        let queryParams = {
+            params: {
+                cuisine:state.cuisine,
+                category:state.category,
+                start:1
+            }
+        };
         return await axios.get("/api/restaurants",queryParams)
             .then(response => {
                 return response.data.restaurants;
@@ -26,7 +42,7 @@ function Sidebar(props) {
 
     return (
         <div className="sidebar bg-grey">
-            <h5>Results: </h5>
+            <h5>Results </h5>
             <ul className="restaurant-list">
                 {state.restaurants.length ? (
                     state.restaurants.map((item, index) => {

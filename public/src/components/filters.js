@@ -61,12 +61,13 @@ function Filters() {
                         categories.filter((value) => pickedCategoryIds.has(value.categories.id)).map((category, index) => {
                             return ( 
                                 <label key={index}>
-                                {category.categories.name}
-                                <input
-                                    name={"category-"+category.categories.name}
-                                    data-filterid={category.categories.id}
-                                    type="checkbox"
-                                    onChange={() => dispatch({ type: "updateCategory",categoryId:category.categories.id })} />
+                                    {category.categories.name}
+                                    <input
+                                        name={"category-"+category.categories.name}
+                                        data-filterid={category.categories.id}
+                                        type="checkbox"
+                                        onChange={() => dispatch({ type: "updateCategory",categoryId:category.categories.id })} />
+                                    <span className="checkbox-marker"></span>
                                 </label>
                             )
                         })
@@ -85,12 +86,13 @@ function Filters() {
                         cuisines.filter((value) => pickedCuisineIds.has(value.cuisine.cuisine_id)).map((cuisine, index) => {
                             return ( 
                                 <label key={index}>
-                                {cuisine.cuisine.cuisine_name}
-                                <input
-                                    name={"cuisine-"+cuisine.cuisine.cuisine_name}
-                                    data-filterid={cuisine.cuisine.cuisine_id}
-                                    type="checkbox"
-                                    onChange={() => dispatch({ type: "updateCuisine",cuisineId:cuisine.cuisine.cuisine_id })} />
+                                    {cuisine.cuisine.cuisine_name}
+                                    <input
+                                        name={"cuisine-"+cuisine.cuisine.cuisine_name}
+                                        data-filterid={cuisine.cuisine.cuisine_id}
+                                        type="checkbox"
+                                        onChange={() => dispatch({ type: "updateCuisine",cuisineId:cuisine.cuisine.cuisine_id })} />
+                                    <span className="checkbox-marker"></span>
                                 </label>
                             )
                         })
@@ -105,26 +107,27 @@ function Filters() {
             <div className="filters-column w-25">
                 <h4>Rating:</h4>
                 <div className="rating-wrap"> 
+                <span className="slider-label left">1</span>
                     <Nouislider 
                         data-filterid="filter-rating"
                         range={{ min: 1, max: 5 }} 
                         step={1}
                         start={[2, 4]} 
-                        onUpdate={handleRatingSliderChange}
-                        connect
-                        tooltips  />
+                        onSlide={handleRatingSliderChange}
+                        connect  />
+                    <span className="slider-label right">5</span>
                 </div>
                 <h4>Cost:</h4>
                 <div className="rating-wrap">
+                    <span className="slider-label left">$</span>
                     <Nouislider 
                         data-filterid="filter-price"
                         range={{ min: 1, max: 4 }} 
                         step={1}
                         start={["1",  "4"]} 
-                        onUpdate={handlePriceSliderChange}
-                        connect
-                        tooltips
-                        />
+                        onSlide={handlePriceSliderChange}
+                        connect />
+                    <span className="slider-label right">$$$$</span>
                 </div>
             </div> 
 

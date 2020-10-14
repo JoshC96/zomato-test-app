@@ -20,7 +20,7 @@ function Restaurant(props) {
 
             <div className="restaurant-meta">
                 <h1>{props.restaurant.name}</h1>
-                <p>
+                <p className="text-light">
                     {locationData.address ? (
                         locationData.address
                     ) : (
@@ -49,7 +49,7 @@ function Restaurant(props) {
                         <>No listed cuisines</>
                     )}
                 </h3>
-                <h4>Phone</h4>
+                <h4>Phone Number</h4>
                 <h3>
                     {/* 
                         CHECK IF PHONE NUMBER EXISTS AND IS A STRING

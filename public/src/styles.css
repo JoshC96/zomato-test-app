@@ -6,6 +6,55 @@ img {
   max-width: 100%;
 }
 
+h1, h4 {
+  color: #373737;
+}
+
+h3, h5 {
+  color: #4e5456;
+}
+
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  font-size: 14px;
+}
+
+label {
+  margin-bottom: 8px;
+  position: relative;
+}
+label input[type=checkbox] {
+  opacity: 0;
+  margin-right: 8px;
+  float: left;
+}
+label .checkbox-marker {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #e5e5e5;
+}
+label input:checked ~ .checkbox-marker:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 1px solid #bf5050;
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.text-light {
+  color: #727678;
+}
+
 .bg-light {
   background-color: #f1f1f1;
 }
@@ -69,7 +118,21 @@ img {
 }
 .filters-container .filters-form .filters-column h4 {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
+}
+.filters-container .filters-form .filters-column .rating-wrap {
+  position: relative;
+}
+.filters-container .filters-form .filters-column .rating-wrap .slider-label {
+  position: absolute;
+  top: 20px;
+  font-size: 14px;
+}
+.filters-container .filters-form .filters-column .rating-wrap .slider-label.left {
+  left: 0;
+}
+.filters-container .filters-form .filters-column .rating-wrap .slider-label.right {
+  right: 0;
 }
 .filters-container .filters-form .cuisine-list label,
 .filters-container .filters-form .category-list label {
@@ -95,38 +158,35 @@ img {
 .restaurant-container .restaurant-wrap h1, .restaurant-container .restaurant-wrap p {
   margin: 0;
 }
-.restaurant-container .restaurant-wrap h4 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin: 0;
-}
 .restaurant-container .restaurant-wrap h3 {
   margin-top: 0;
   font-weight: 400;
+  font-size: 24px;
 }
 .restaurant-container .restaurant-wrap .icon-holder {
   display: flex;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 25px;
+  font-size: 17px;
 }
 .restaurant-container .restaurant-wrap .icon-holder img {
   max-width: 30px;
 }
 .restaurant-container .restaurant-wrap .icon-holder:last-of-type {
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 .restaurant-container .restaurant-wrap .restaurant-image-wrap {
   width: 40%;
 }
 .restaurant-container .restaurant-wrap .restaurant-meta {
   padding: 0 22px;
-  width: 60%;
+  width: 50%;
 }
 
 .sidebar {
   max-width: 100%;
-  width: 309px;
+  width: 350px;
   min-height: 400px;
   height: calc(100vh - 232px);
   overflow-y: scroll;
@@ -134,6 +194,13 @@ img {
 .sidebar h5, .sidebar button {
   text-align: left;
   padding-left: 50px;
+}
+.sidebar h5 {
+  margin: 0;
+  padding: 18px 18px 0px 50px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 .sidebar .restaurant-list {
   list-style: none;
@@ -143,8 +210,8 @@ img {
   font-size: 18px;
   display: block;
   width: 100%;
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border: none;
   background: none;
   border-top: 1px solid #ccc;
@@ -156,7 +223,7 @@ img {
 }
 
 .noUi-target {
-  margin: 30px 0 40px;
+  margin: 15px 0 40px;
 }
 .noUi-target.noUi-horizontal {
   height: 13px;
