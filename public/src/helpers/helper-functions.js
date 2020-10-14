@@ -22,7 +22,7 @@ module.exports = {
     filterBySliders: function(data, priceFilters, ratingFilters){
 
         console.log(data.length)
-        data.filter((item) => {
+        data = data.filter((item) => {
             let priceRange = parseInt(item.restaurant.price_range)
             let ratingRange = parseInt(item.restaurant.user_rating.aggregate_rating)
 

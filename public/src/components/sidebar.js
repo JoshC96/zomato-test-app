@@ -13,12 +13,6 @@ function Sidebar(props) {
         })
     },[state.cuisine, state.category, state.price, state.rating])
 
-    // useEffect(() => {
-    //     getRestaurants().then(function(result) {
-    //         dispatch({type: "updateRestaurants",restaurants: result});
-    //     })
-    // },[state.category])
-
     const getRestaurants = async () => {
         let queryParams = {
             params: {
