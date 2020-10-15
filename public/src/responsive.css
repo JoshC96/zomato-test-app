@@ -19,6 +19,12 @@
 .filters-container .filters-form .filters-column .cuisine-list {
     padding: 0 12px;
   }
+  .filters-container .filters-form .filters-column .rating-wrap .slider-label.left {
+    left: 20px;
+  }
+  .filters-container .filters-form .filters-column .rating-wrap .slider-label.right {
+    right: 20px;
+  }
 
   .noUi-target.noUi-horizontal {
     width: 95%;

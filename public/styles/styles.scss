@@ -24,11 +24,11 @@ h4{
 label{
     margin-bottom: 8px;
     position: relative;
+    padding-left: 20px;
 
     input[type="checkbox"]{
         opacity: 0;
-        margin-right: 8px;
-        float: left;
+        position: absolute;
     }
 
     .checkbox-marker{
@@ -156,6 +156,7 @@ label{
         }
 
         .cuisine-list{
+            margin-bottom: 8px;
             column-count: 3;
         }
 
@@ -274,6 +275,7 @@ label{
             height: 22px;
             width: 22px;
             top: -5px;
+            right: -10px;
 
             &,.noUi-touch-area{
                 outline: none;

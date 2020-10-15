@@ -20,6 +20,17 @@
                 .cuisine-list{
                     padding: 0 12px;
                 }
+
+                .rating-wrap{
+                    .slider-label{
+                        &.left{
+                            left: 20px;
+                        }
+                        &.right{
+                            right: 20px;
+                        }
+                    }
+                }
             }
         }
     }
